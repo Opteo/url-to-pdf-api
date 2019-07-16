@@ -9,10 +9,11 @@ const config = {
   DEBUG_MODE: process.env.DEBUG_MODE === 'true',
   CORS_ORIGIN: process.env.CORS_ORIGIN || '*',
   API_TOKENS: [],
-};
-
-if (process.env.API_TOKENS) {
-  config.API_TOKENS = process.env.API_TOKENS.split(',');
+  DISABLE_JS: process.env.DISABLE_JS || false
 }
 
-module.exports = config;
+if (process.env.API_TOKENS) {
+  config.API_TOKENS = process.env.API_TOKENS.split(',')
+}
+
+module.exports = config
