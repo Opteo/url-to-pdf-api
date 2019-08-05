@@ -8,8 +8,7 @@ const config = {
   ALLOW_HTTP: process.env.ALLOW_HTTP === 'true',
   DEBUG_MODE: process.env.DEBUG_MODE === 'true',
   CORS_ORIGIN: process.env.CORS_ORIGIN || '*',
-  API_TOKENS: [],
-  DISABLE_JS: process.env.DISABLE_JS || false
+  API_TOKENS: []
 }
 
 if (process.env.API_TOKENS) {

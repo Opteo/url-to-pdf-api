@@ -65,7 +65,7 @@ async function render(_opts = {}) {
   })
 
   page.on('response', (response) => {
-    if (response.status >= 400) {
+    if (response && response.status >= 400) {
       this.failedResponses.push(response)
     }
 
@@ -90,10 +90,6 @@ async function render(_opts = {}) {
 
       await client.send('Network.enable')
       await client.send('Network.setCookies', { cookies: opts.cookies })
-    }
-
-    if (config.DISABLE_JS) {
-      await page.setJavaScriptEnabled(false)
     }
 
     if (opts.html) {
@@ -130,7 +126,11 @@ async function render(_opts = {}) {
         throw err
       }
     }
-    if (opts.failEarly === 'page' && this.mainUrlResponse.status !== 200) {
+    if (
+      opts.failEarly === 'page' &&
+      this.mainUrlResponse &&
+      this.mainUrlResponse.status !== 200
+    ) {
       const msg = `Request for ${
         opts.url
       } did not directly succeed and returned status ${
