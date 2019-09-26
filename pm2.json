@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "url-to-pdf-api",
+      "script": "src/index.js",
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "9000",
+        "ALLOW_HTTP": "true",
+        "DEBUG_MODE": "false",
+        "DISABLE_JS": "false"
+      },
+      "autorestart": true,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss SSS"
+    }
+  ]
+}
