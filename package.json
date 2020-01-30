@@ -4,10 +4,10 @@
   "description": "Web page PDF rendering done right. Packaged to an easy API.",
   "main": "src/index.js",
   "engines": {
-    "node": "10.x.x"
+    "node": ">= 10.x.x"
   },
   "scripts": {
-    "start": "nodemon --watch ./src -e js src/index.js",
+    "start": "ALLOW_HTTP=true nodemon --watch ./src -e js src/index.js",
     "test": "mocha --timeout 10000 && npm run lint",
     "lint": "eslint ."
   },
